@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        body {
+            background-color: #2d2d2d;
+            overflow: hidden;
+            margin: 0;
+            padding: 0;
+        }
+
+        .leaf {
+            position: absolute;
+            color: #228B22;
+            animation: fall linear infinite;
+        }
+
+        @keyframes fall {
+            0% {
+                opacity: 1;
+                transform: translateY(-100%) rotateZ(0deg);
+            }
+
+            100% {
+                opacity: 0;
+                transform: translateY(100vh) rotateZ(360deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <script>
+        function createLeaf() {
+            const leaf = document.createElement('i');
+            leaf.className = 'fas fa-cannabis leaf';
+            leaf.style.left = Math.random() * 100 + 'vw';
+            leaf.style.animationDuration = Math.max(2, Math.random() * 5) + 's';
+            leaf.style.fontSize = Math.max(20, Math.random() * 50) + 'px';
+            document.body.appendChild(leaf);
+
+            setTimeout(() => {
+                document.body.removeChild(leaf);
+            }, 5000);
+        }
+
+        setInterval(createLeaf, 500);
+    </script>
+</body>
+</html>
